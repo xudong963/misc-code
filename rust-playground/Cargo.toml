@@ -1,5 +1,6 @@
 [workspace]
 
 members = [
-    "lib/pin_experiment"
+    "lib/pin_experiment",
+    "lib/async_blocking",
 ]

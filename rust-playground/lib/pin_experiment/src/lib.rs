@@ -10,14 +10,13 @@ fn self_ref() {
     let _a = String::from("hello");
     // let s = SelfRef{a, b: &a};
     /*
-      7 |     let a = String::from("hello");
-        |         - move occurs because `a` has type `String`, which does not implement the `Copy` trait
-      8 |     let s = SelfRef{a, b: &a};
-        |                     -     ^^ value borrowed here after move
-        |                     |
-        |                     value moved here
-     */
-
+     7 |     let a = String::from("hello");
+       |         - move occurs because `a` has type `String`, which does not implement the `Copy` trait
+     8 |     let s = SelfRef{a, b: &a};
+       |                     -     ^^ value borrowed here after move
+       |                     |
+       |                     value moved here
+    */
 }
 
 struct SelfRefWithPtr {
@@ -43,9 +42,8 @@ impl SelfRefWithPtr {
     }
 
     fn b(&self) -> &String {
-        unsafe {&*(self.b)}
+        unsafe { &*(self.b) }
     }
-
 }
 
 fn self_ref_with_ptr() {
@@ -84,9 +82,8 @@ impl SelfRefWithHeapPin {
         };
         let mut boxed = Box::pin(self_ref_with_heap_pin);
         let pointer_to_a: *const String = &boxed.as_ref().a;
-        unsafe {boxed.as_mut().get_unchecked_mut().b = pointer_to_a };
+        unsafe { boxed.as_mut().get_unchecked_mut().b = pointer_to_a };
         boxed
-
     }
 
     fn a(self: Pin<&Self>) -> &String {
@@ -94,9 +91,8 @@ impl SelfRefWithHeapPin {
     }
 
     fn b(self: Pin<&Self>) -> &String {
-        unsafe {&*(self.b)}
+        unsafe { &*(self.b) }
     }
-
 }
 
 fn self_ref_with_heap_pin() {
@@ -105,7 +101,7 @@ fn self_ref_with_heap_pin() {
     println!("a: {}, b: {}", test1.as_ref().a(), test1.as_ref().b());
     // std::mem::swap(test1.get_mut(), test2.get_mut());
     // std::mem::swap(&mut *test1, &mut *test2);
-    println!("a: {}, b: {}",test2.as_ref().a(), test2.as_ref().b());
+    println!("a: {}, b: {}", test2.as_ref().a(), test2.as_ref().b());
 }
 
 /// Pin目前最重要的一个应用：Future. Future 内部有自引用的问题
@@ -119,6 +115,5 @@ fn self_ref_with_heap_pin() {
 mod tests {
 
     #[test]
-    fn it_works() {
-    }
+    fn it_works() {}
 }
