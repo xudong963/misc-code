@@ -252,6 +252,10 @@ name = "pin_experiment"
 version = "0.1.0"
 
 [[package]]
+name = "play_any"
+version = "0.1.0"
+
+[[package]]
 name = "play_boxcar"
 version = "0.1.0"
 dependencies = [
@@ -263,6 +267,13 @@ name = "play_scope_thread"
 version = "0.1.0"
 dependencies = [
  "crossbeam",
+]
+
+[[package]]
+name = "play_stream"
+version = "0.1.0"
+dependencies = [
+ "tokio",
 ]
 
 [[package]]

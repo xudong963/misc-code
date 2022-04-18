@@ -5,4 +5,6 @@ members = [
     "lib/async_blocking",
     "lib/play_boxcar",
     "lib/play_scope_thread",
+    "lib/play_stream",
+    "lib/play_any",
 ]
