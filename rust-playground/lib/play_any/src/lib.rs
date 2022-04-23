@@ -5,8 +5,8 @@ trait A {
     fn as_any_mut(&mut self) -> &mut dyn Any;
 }
 
-struct B{
-    b: i32
+struct B {
+    b: i32,
 }
 
 impl B {
@@ -26,7 +26,7 @@ impl A for B {
 }
 
 fn main() {
-    let mut a: Box<dyn A> = Box::new(B {b: 1});
+    let mut a: Box<dyn A> = Box::new(B { b: 1 });
 
     let child = match a.as_any_mut().downcast_mut::<B>() {
         Some(b) => b,
@@ -34,9 +34,7 @@ fn main() {
     };
 
     child.set_b(2);
-
 }
-
 
 #[cfg(test)]
 mod tests {
