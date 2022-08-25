@@ -6,4 +6,6 @@ members = [
     "lib/play_scope_thread",
     "lib/play_stream",
     "lib/play_any",
+    "lib/tokio_select",
+    "lib/channel_async",
 ]
