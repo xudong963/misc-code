@@ -1,0 +1,21 @@
+[package]
+name = "play_arrow_flight"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "demo-server"
+path = "src/server.rs"
+
+[[bin]]
+name = "demo-client"
+path = "src/client.rs"
+
+[dependencies]
+tokio = { version = "1.21.2", features = ["full"] }
+tonic = "0.8.2"
+tokio-stream = { version = "0.1.11", features = ["net"]}
+arrow-format = { version = "0.8.0", features = ["full"]}
+async-trait = "0.1.58"
+serde_json = "1.0.87"
+serde = "1.0.147"

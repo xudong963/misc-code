@@ -22,8 +22,6 @@ async fn foo1() {
     assert_eq!(r.recv().await, Ok(2));
 }
 
-
-
 #[tokio::test]
 async fn it_works() {
     foo().await;

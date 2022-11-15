@@ -8,4 +8,5 @@ members = [
     "lib/play_any",
     "lib/tokio_select",
     "lib/channel_async",
+    "play_arrow_flight",
 ]

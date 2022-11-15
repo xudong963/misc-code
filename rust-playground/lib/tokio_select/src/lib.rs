@@ -46,4 +46,3 @@ async fn test1() {
     f1().await;
     f2().await;
 }
-
